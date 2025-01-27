@@ -46,14 +46,15 @@ rule prepare_auspice_config:
         replace_clade_title=lambda wildcard: r"Serotype" if wildcard.serotype in ['all'] else r"Dengue Genotype (Nextclade)",
     run:
         data = {
-            "title": "Real-time tracking of dengue virus evolution",
+            "title": "INSaFLU dengue Nextstrain build",
             "maintainers": [
-              {"name": "the Nextstrain team", "url": "https://nextstrain.org/team"}
+              {"name": "the Nextstrain team", "url": "https://nextstrain.org/team"},
+              {"name": "INSA", "url": "https://insaflu.insa.pt"}
             ],
             "data_provenance": [
               {
-                "name": "GenBank",
-                "url": "https://www.ncbi.nlm.nih.gov/genbank/"
+                "name": "INSaFLU",
+                "url": "https://insaflu.insa.pt"
               }
             ],
             "build_url": "https://github.com/nextstrain/dengue",
