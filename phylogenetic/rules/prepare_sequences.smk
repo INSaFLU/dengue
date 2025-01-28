@@ -60,7 +60,7 @@ rule filter:
         sequences = "results/{gene}/filtered_{serotype}.fasta"
     params:
         group_by = config['filter']['group_by'],
-        subsample_max_sequences = config['filter']['subsample_max_sequences'],
+        sequences_per_group = lambda wildcards: config['filter']['sequences_per_group'][wildcards.serotype],
         min_length = lambda wildcard: config['filter']['min_length'][wildcard.gene],
         strain_id = config.get("strain_id_field", "strain"),
     shell:
@@ -73,7 +73,7 @@ rule filter:
             --include {input.include} \
             --output {output.sequences} \
             --group-by {params.group_by} \
-            --subsample-max-sequences {params.subsample_max_sequences} \
+            --sequences-per-group {params.sequences_per_group} \
             --min-length {params.min_length} \
             --exclude-where country=? region=? date=? is_lab_host='true' \
             --query-columns is_lab_host:str
