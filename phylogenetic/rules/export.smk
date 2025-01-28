@@ -57,7 +57,7 @@ rule prepare_auspice_config:
                 "url": "https://insaflu.insa.pt"
               }
             ],
-            "build_url": "https://github.com/nextstrain/dengue",
+            "build_url": "https://github.com/INSaFLU/dengue",
             "colorings": [
               {
                 "key": "gt",
